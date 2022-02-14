@@ -11,3 +11,31 @@
 .container {
   padding: 0 20px;
 }
+
+.hr {
+  border: 1px dashed lightgrey;
+}
+
+.quote {
+  display: block;
+  margin-top: -16px;
+  margin-bottom: 16px;
+  color: grey;
+}
+
+.form {
+  &_label {
+    display: block;
+  }
+
+  &_input {
+    display: block;
+    width: 100%;
+    margin: 8px 0 16px 0;
+    padding: 8px;
+  }
+
+  &_submit {
+    padding: 10px 20px;
+  }
+}
