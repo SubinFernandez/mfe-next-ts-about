@@ -37,7 +37,7 @@ const About: React.FC<AboutProps> = ({ hostTime, nameHandler }) => {
           <small className={styles.quote}>This demonstrates data sent to the host through callbacks</small>
           <label className={styles.form_label} htmlFor='txtName'>Let us know your name</label>
           <input className={styles.form_input} id='txtName' value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='Your name'></input>
-          <button className={styles.form_submit} onClick={() => sendName(name)}>Send name to the host</button>
+          <button className={styles.form_submit} disabled={name.length === 0} onClick={() => sendName(name)}>Send name to the host</button>
         </>}
       </section>
     </div>
