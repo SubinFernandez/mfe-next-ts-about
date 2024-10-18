@@ -4,16 +4,16 @@ import styles from './about.module.scss'
 
 interface AboutProps {
   hostTime?: string
-  nameHandler?: (name: string) => void
+  onMessage?: (message: string) => void
 }
 
-const About: React.FC<AboutProps> = ({ hostTime, nameHandler }) => {
-  const [name, setName] = useState('')
+const About: React.FC<AboutProps> = ({ hostTime, onMessage }) => {
+  const [message, setMessage] = useState('')
 
-  const sendName = (n: string) => {
-    if (nameHandler) {
+  const handleMessageChange = (message: string) => {
+    if (onMessage) {
       setName('')
-      nameHandler(n)
+      onMessage(message)
     }
   }
 
@@ -35,9 +35,9 @@ const About: React.FC<AboutProps> = ({ hostTime, nameHandler }) => {
           <hr className={styles.hr}/>
           <h2>Send message to host</h2>
           <small className={styles.quote}>This demonstrates data sent to the host through callbacks</small>
-          <label className={styles.form_label} htmlFor='txtName'>Let us know your name</label>
-          <input className={styles.form_input} id='txtName' value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='Your name'></input>
-          <button className={styles.form_submit} disabled={name.length === 0} onClick={() => sendName(name)}>Send name to the host</button>
+          <label className={styles.form_label} htmlFor='txtMessage'>Let us know your message for the host</label>
+          <input className={styles.form_input} id='txtMessage' value={message} onChange={(e) => setMessage(e.target.value)} type='text' placeholder='Your message' />
+          <button className={styles.form_submit} disabled={message.length === 0} onClick={() => handleMessageChange(message)}>Send message to the host</button>
         </>}
       </section>
     </div>
